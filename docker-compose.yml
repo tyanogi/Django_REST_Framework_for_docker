@@ -9,7 +9,7 @@ services:
     volumes:
       - ./nginx/conf:/etc/nginx/conf.d
       - ./nginx/uwsgi_params:/etc/nginx/uwsgi_params
-      - ./static:/static
+      - ./src/static:/static
       - ./nginx/log:/var/log/nginx
     depends_on:
       - django
@@ -23,7 +23,7 @@ services:
     volumes:
       - ./src:/code
       - ./django/log:/django/log
-    #command: sh /code/entry.sh test 
+    command: uwsgi --ini /django/uwsgi.ini
     stdin_open: true
     tty: true
 
