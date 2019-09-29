@@ -22,6 +22,7 @@ services:
       - '8000'
     volumes:
       - ./src:/code
+      - ./django:/django
     #command: sh /code/entry.sh test 
     stdin_open: true
     tty: true

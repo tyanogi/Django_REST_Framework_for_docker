@@ -1,4 +1,5 @@
 #!/bin/bash
+mkdir /django/log
 django-admin startproject $1 /code
-sed -ie 's/<ProjectName>/'$1'/g' uwsgi.ini
+sed -i -e 's/<ProjectName>/'$1'/g' /django/uwsgi.ini
 uwsgi --ini /django/uwsgi.ini
